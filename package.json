@@ -10,6 +10,7 @@
     "@types/node": "^16.7.13",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
+    "classnames": "^2.3.1",
     "husky-init": "^8.0.0",
     "lint-staged": "^12.4.1",
     "react": "^18.1.0",
@@ -60,11 +61,12 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.5.0",
+    "husky": "^8.0.0",
     "prettier": "^2.6.2",
+    "sass": "^1.51.0",
     "stylelint": "^14.8.1",
     "stylelint-config-recess-order": "^3.0.0",
     "stylelint-config-standard-scss": "^3.0.0",
-    "stylelint-declaration-strict-value": "^1.8.0",
-    "husky": "^8.0.0"
+    "stylelint-declaration-strict-value": "^1.8.0"
   }
 }

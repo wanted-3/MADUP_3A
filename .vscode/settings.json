@@ -4,5 +4,9 @@
   "editor.codeActionsOnSave": {
     "source.fixAll": true,
     "source.organizeImports": true
+  },
+  "[scss]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter":"esbenp.prettier-vscode"
   }
 }
