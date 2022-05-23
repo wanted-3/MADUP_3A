@@ -1,0 +1,19 @@
+@use '/src/styles/mixins/flexbox';
+.Integrated {
+  position: absolute;
+  width: 1039px;
+  height: 654px;
+  left: 40px;
+  top: 60px;
+  background: #ffffff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.04);
+  border-radius: 20px;
+}
+.charts {
+  @include flexbox.flexbox(center, start);
+  flex-direction: column;
+}
+.dropdowns {
+  @include flexbox.flexbox(center, center);
+  flex-direction: row;
+}

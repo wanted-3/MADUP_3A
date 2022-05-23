@@ -1,7 +1,9 @@
+import FirstPage from './routes'
+
 const App = () => {
   return (
     <main>
-      <h1>Hello</h1>
+      <FirstPage />
     </main>
   )
 }
