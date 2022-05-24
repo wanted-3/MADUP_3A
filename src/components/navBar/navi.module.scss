@@ -17,23 +17,44 @@
     width: 240px;
     border: 1px solid #edeff1;
   }
-  p {
-    padding: 13px 0 13px 20px;
+  .text {
     font-size: 12px;
     font-weight: 700;
     line-height: 14px;
-    display: flex;
     color: #94a2ad;
+    padding-bottom: 5px;
   }
   .dropDown {
-    margin: 40px;
+    @include flexbox.flexbox(center, start);
+    width: 240px;
+    height: 140px;
+    flex-direction: column;
+    margin-bottom: 40px;
   }
   .navBtns {
-    @include flexbox.flexbox(around, center);
+    @include flexbox.flexbox(around, start);
     flex-direction: column;
     width: 240px;
     height: 140px;
-    margin-bottom: 300px;
+    margin-bottom: 150px;
+    .navBtn {
+      @include flexbox.flexbox(round, center);
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 19px;
+      width: 240px;
+      height: 60px;
+      padding-left: 5px;
+      color: #3a474e;
+      &.isActive {
+        background: #edeff1;
+        border-radius: 10px;
+        color: #586cf5;
+        path {
+          fill: #586cf5;
+        }
+      }
+    }
   }
   .infoGuide {
     @include flexbox.flexbox(center, center);
@@ -41,5 +62,19 @@
     height: 100px;
     background: #e5f4fd;
     border-radius: 10px;
+    margin-bottom: 50px;
+    .infoGuideTitle {
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 19px;
+      color: #3a474e;
+    }
+  }
+  .link {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14px;
+    color: #94a2ad;
+    text-decoration: underline;
   }
 }

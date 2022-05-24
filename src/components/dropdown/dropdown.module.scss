@@ -18,12 +18,33 @@
     fill: #3a474e;
   }
 }
+.dropDownBtn2 {
+  @include flexbox.flexbox(center, center);
+  box-sizing: border-box;
+  width: 240px;
+  height: 60px;
+  left: 80px;
+  top: 320px;
+  background: #ffffff;
+  border: 1px solid #d1d8dc;
+  border-radius: 10px;
+}
 .select {
   @include flexbox.flexbox(center, center);
   flex-direction: column;
   color: colors.$BLACK;
   background-color: transparent;
   width: 123px;
+  border-radius: 10px;
+  border: 1px solid #d1d8dc;
+  margin-bottom: 2px;
+}
+.select2 {
+  @include flexbox.flexbox(center, center);
+  flex-direction: column;
+  color: colors.$BLACK;
+  background-color: transparent;
+  width: 240px;
   border-radius: 10px;
   border: 1px solid #d1d8dc;
   margin-bottom: 2px;

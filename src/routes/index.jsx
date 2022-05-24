@@ -6,7 +6,8 @@ import Date from '../components/datepicker/Datepicker'
 const FirstPage = () => {
   return (
     <div className={styles.firstpage}>
-      {/* <header><DatePickerComponent/></header> */}
+      {/* <header>
+      </header>  */}
       <Date />
       <nav>
         <Navi />
