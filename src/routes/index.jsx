@@ -5,6 +5,7 @@ import styles from './Routes.module.scss'
 const FirstPage = () => {
   return (
     <div className={styles.firstpage}>
+      {/* <header><DatePickerComponent/></header> */}
       <nav>
         <Navi />
       </nav>

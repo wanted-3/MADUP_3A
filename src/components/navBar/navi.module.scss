@@ -4,7 +4,7 @@
   flex-direction: column;
   align-items: center;
   width: 320px;
-  height: 100vh;
+  height: 100%;
   background: #ffffff;
   box-shadow: 4px 0 10px rgba(0, 0, 0, 4%);
   .logo {
@@ -27,5 +27,19 @@
   }
   .dropDown {
     margin: 40px;
+  }
+  .navBtns {
+    @include flexbox.flexbox(around, center);
+    flex-direction: column;
+    width: 240px;
+    height: 140px;
+    margin-bottom: 300px;
+  }
+  .infoGuide {
+    @include flexbox.flexbox(center, center);
+    width: 240px;
+    height: 100px;
+    background: #e5f4fd;
+    border-radius: 10px;
   }
 }
