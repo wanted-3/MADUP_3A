@@ -18,22 +18,22 @@
     fill: #3a474e;
   }
 }
-// .select {
-//   @include flexbox.flexbox(center, center);
-//   flex-direction: column;
-//   color: colors.$BLACK;
-//   background-color: transparent;
-//   width: 123px;
-//   border-radius: 10px;
-//   border: 1px solid #d1d8dc;
-//   margin-bottom: 2px;
-// }
-// .hidden {
-//   display: none;
-// }
-// li {
-//   width: 100%;
-//   &:hover {
-//     background-color: #d1d8dc;
-//   }
-// }
+.select {
+  @include flexbox.flexbox(center, center);
+  flex-direction: column;
+  color: colors.$BLACK;
+  background-color: transparent;
+  width: 123px;
+  border-radius: 10px;
+  border: 1px solid #d1d8dc;
+  margin-bottom: 2px;
+}
+.hidden {
+  display: none;
+}
+li {
+  width: 100%;
+  &:hover {
+    background-color: #d1d8dc;
+  }
+}

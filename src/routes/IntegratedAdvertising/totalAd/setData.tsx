@@ -1,9 +1,9 @@
-import getData from './getData'
+import GetData from '../getData'
 
 const setData = () => {
   const date = [8, 15]
   const prevDate = date[1] - date[0]
-  const { all } = getData()
+  const { all } = GetData()
 
   const ROAS = [
     all[0].slice(date[0], date[1]).reduce((prev, current) => {

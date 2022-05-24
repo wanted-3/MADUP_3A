@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom'
 import { Board, Chart, LogoMad } from '../../assets/svgs'
 import { cx } from '../../styles'
-import DropDown from '../IntegratedAdvertising/dropdown/Dropdown'
+import DropDown from '../dropdown/Dropdown'
 import styles from './navi.module.scss'
 
 const Navi = () => {
@@ -13,7 +13,7 @@ const Navi = () => {
       <hr />
       <div className={styles.dropDown}>
         <p>서비스</p>
-        <DropDown orders={1} />
+        <DropDown orders={5} />
       </div>
       <div className={styles.navBtns}>
         <p>광고 센터</p>

@@ -1,9 +1,9 @@
 import styles from './adData.module.scss'
-import setData from '../dataConverts/setData'
-import setString from '../dataConverts/setString'
-import setPositiveInteger from '../dataConverts/setPositiveInteger'
-import setSlice from '../dataConverts/setSlice'
-import setIconColor from '../dataConverts/setIconColor'
+import setData from './setData'
+import setIconColor from './setIconColor'
+import setPositiveInteger from './setPositiveInteger'
+import setSlice from './setSlice'
+import setString from './setString'
 
 const AdData = () => {
   const {

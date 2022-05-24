@@ -1,5 +1,5 @@
-import Integrated from '../components/IntegratedAdvertising'
 import Navi from '../components/navBar/Navi'
+import Integrated from './IntegratedAdvertising'
 import styles from './Routes.module.scss'
 
 const FirstPage = () => {
