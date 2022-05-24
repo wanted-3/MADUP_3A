@@ -29,30 +29,49 @@ const Chart = () => {
     })
 
   return (
-    <div>
-      <VictoryChart domainPadding={{ x: 50, y: 10 }} theme={VictoryTheme.material}>
-        <VictoryAxis tickFormat={['광고비', '매출', '노출수', '클릭수', '전환수']} />
-        <VictoryAxis dependentAxis tickFormat={(tick) => `${tick}%`} />
+    <div style={{ marginBottom: '50px' }}>
+      <VictoryChart width='800' height='300' domainPadding={{ x: 50, y: 10 }} theme={VictoryTheme.material}>
+        <VictoryAxis
+          style={{ axis: { stroke: '#efefef' } }}
+          tickFormat={['광고비', '매출', '노출수', '클릭수', '전환수']}
+        />
+        <VictoryAxis
+          style={{ axis: { stroke: 'transparent' }, ticks: { stroke: 'transparent', strokeWidth: 2, size: 2 } }}
+          dependentAxis
+          tickFormat={(tick) => `${tick}%`}
+        />
 
         <VictoryStack colorScale='cool'>
           {mental.length &&
-            mental.map((data, i) => {
-              return (
-                <VictoryBar
-                  data={data}
-                  key={i}
-                  labels={({ datum }) => `${datum.k}`}
-                  labelComponent={<VictoryTooltip constrainToVisibleArea />}
-                />
-              )
-            })}
+            mental.map((data) => (
+              <VictoryBar
+                data={data}
+                style={{
+                  labels: { fill: 'white' },
+                }}
+                key={data[0].y}
+                labels={({ datum }) => `${datum.k}`}
+                labelComponent={
+                  <VictoryTooltip
+                    constrainToVisibleArea
+                    flyoutStyle={{
+                      stroke: 'none',
+                      fill: '#2d3436',
+                    }}
+                  />
+                }
+              />
+            ))}
         </VictoryStack>
       </VictoryChart>
       <VictoryLegend
+        x={420}
+        width={800}
+        height={25}
         orientation='horizontal'
         gutter={20}
         colorScale='cool'
-        data={[{ name: 'facebook' }, { name: 'google' }, { name: 'naver' }, { name: 'kakao' }]}
+        data={[{ name: 'Facebook' }, { name: 'Google' }, { name: 'Naver' }, { name: 'Kakao' }]}
       />
     </div>
   )

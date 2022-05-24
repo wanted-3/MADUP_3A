@@ -9,11 +9,11 @@ export default function MediaStatus() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(loadMediaData())
+    dispatch(loadMediaData('2022-02-22', '2022-02-29'))
   }, [])
 
   return (
-    <div>
+    <div style={{ width: '1040px', padding: '40px', border: '1px solid black', borderRadius: '5%' }}>
       <Chart />
       <Table />
     </div>

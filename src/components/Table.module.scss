@@ -1,11 +1,21 @@
 .table {
-  margin: 10px;
-  border-top: 1px solid black;
+  width: 90%;
+  margin: 0 auto;
+  border-top: 2px solid #efefef;
   border-collapse: collapse;
 
   th,
   td {
-    border-bottom: 1px solid black;
+    border-bottom: 2px solid #efefef;
     padding: 10px;
+    text-align: right;
+  }
+
+  .leftTd {
+    text-align: left;
+  }
+
+  tfoot {
+    color: blue;
   }
 }

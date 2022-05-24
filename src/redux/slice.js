@@ -101,23 +101,31 @@ export function loadMediaData(firstDay = '2022-02-22', lastDay = '2022-02-25') {
       }, {})
       const { channel, cost, roas, imp, click, ctr, cpc, convValue } = companyData
 
+      const floor = {
+        sales: Math.floor((roas * cost) / 100),
+        ctr: Math.floor(ctr),
+        cpc: Math.floor(cpc),
+        roas: Math.floor(roas),
+      }
+
       chartData.push([
         { x: '광고비', y: cost },
-        { x: '매출', y: (roas * cost) / 100 },
+        { x: '매출', y: floor.sales },
         { x: '노출수', y: imp },
         { x: '클릭수', y: click },
         { x: '전환수', y: convValue },
       ])
-      statistics.push([channel, cost, (roas * cost) / 100, roas, imp, click, ctr, cpc])
+      statistics.push([channel, cost, floor.sales, floor.roas, imp, click, floor.ctr, floor.cpc])
     })
 
     // 총합 구하기
-    const totals = ['총계', 0, 0, 0, 0, 0, 0, 0]
+    let totals = ['총계', 0, 0, 0, 0, 0, 0, 0]
     statistics.forEach((companyData) => {
       for (let i = 1; i < companyData.length; i += 1) {
         totals[i] += companyData[i]
       }
     })
+    totals = totals.map((value) => value.toLocaleString('ko-kr'))
 
     // [facebook, google, naver, kakao] 순으로 저장된 데이터
     dispatch(setMediaChart(chartData))

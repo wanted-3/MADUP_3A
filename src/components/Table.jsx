@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux'
 
 import styles from './Table.module.scss'
+import { cx } from '../styles'
 
 const Table = () => {
   const { statistics, totals } = useSelector((state) => state.mediaTable)
@@ -9,22 +10,28 @@ const Table = () => {
     <th key={category}>{category}</th>
   ))
 
-  const resultTable = statistics.map((company) => (
+  const statisticsTable = statistics.map((company) => (
     <tr key={company}>
-      {company.map((category) => (
-        <td key={category}>{category}</td>
+      {company.map((category, i) => (
+        <td key={`${company}-${category}-${i}`} className={cx({ [styles.leftTd]: i === 0 })}>
+          {category}
+        </td>
       ))}
     </tr>
   ))
 
-  const totalsTable = totals.map((total, i) => <td key={`${i}-${total}`}>{total}</td>)
+  const totalsTable = totals.map((total, i) => (
+    <td key={`${i}-${total}`} className={cx({ [styles.leftTd]: i === 0 })}>
+      {total}
+    </td>
+  ))
 
   return (
     <table className={styles.table}>
       <thead>
         <tr>{th}</tr>
       </thead>
-      <tbody>{resultTable}</tbody>
+      <tbody>{statisticsTable}</tbody>
       <tfoot>
         <tr>{totalsTable}</tr>
       </tfoot>
