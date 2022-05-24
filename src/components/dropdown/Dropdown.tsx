@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Arrow, CircleBlue, CircleGreen } from 'assets/svgs'
-import { getDropList, setDropDown } from 'redux/slice'
+import { Arrow, CircleBlue, CircleGreen } from '../../assets/svgs'
+import { getDropList, setDropDown } from '../../redux/slice'
 import styles from './dropdown.module.scss'
 
 interface props {

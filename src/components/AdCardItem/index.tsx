@@ -1,4 +1,5 @@
-import { IAd } from 'types/adData'
+/* eslint-disable import/extensions */
+import { IAd } from '../../types/adData'
 import styles from './adCardItem.module.scss'
 
 interface Props {
@@ -7,7 +8,6 @@ interface Props {
 
 const AdCardItem = ({ item }: Props): JSX.Element => {
   const { startDate, endDate, budget, report, title } = item
-  console.log(item)
 
   // startDate, endDate 포멧 변경
   const DateFormat = (str: string | null | undefined) => {
@@ -56,10 +56,12 @@ const AdCardItem = ({ item }: Props): JSX.Element => {
   }
   // console.log(ItemValue)
 
-  // roas = 광고매출 / 광고비 * 100
   return (
     <div className={styles.adCardItem}>
-      <h2>{title}</h2>
+      <h2>
+        <span>{ItemValue.adType === 'web' ? '웹광고_' : '앱광고_'}</span>
+        {title}
+      </h2>
       <div className={styles.contentsWrapper}>
         <dl>
           <div className={styles.dtddWrapper}>

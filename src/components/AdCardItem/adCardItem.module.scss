@@ -6,8 +6,8 @@
 .adCardItem {
   width: 305px;
   height: 420px;
-  background-color: white;
-  border: 1px blue solid;
+  background-color: colors.$WHITE;
+  border: 1px colors.$GRAYD solid;
   border-radius: 10px;
   margin: 12px;
   display: flexbox;
@@ -16,8 +16,10 @@
   h2 {
     margin-top: 30px;
     margin-left: 15px;
+    padding-bottom: 50px;
     font-size: 1.5em;
     font-weight: bold;
+    border-bottom: 1px colors.$GRAYD solid;
   }
   dl {
     width: 265px;
@@ -34,7 +36,7 @@
   }
   .dtddWrapper {
     height: 40px;
-    border-top: 1px gray solid;
+    border-bottom: 1px colors.$GRAYD solid;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,13 +45,12 @@
   .contentsWrapper {
     width: 90%;
     margin: 0 auto;
-    padding-top: 50px;
   }
   .modifyBtn {
     width: 92px;
     height: 40px;
     margin-top: 20px;
-    border: 1px gray solid;
+    border: 1px colors.$GRAYD solid;
     border-radius: 10px;
   }
 }

@@ -1,8 +1,14 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/constants/levels';
+@use '/src/styles/mixins/flexbox';
+@use '/src/styles/mixins/position';
+
 .contentWrapper {
   width: 1050px;
   height: 1020px;
-  background-color: rebeccapurple;
+  background-color: colors.$WHITE;
   padding-top: 40px;
+  border: 2px colors.$GRAYD solid;
   border-radius: 20px;
   justify-content: center;
 }

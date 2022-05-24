@@ -1,8 +1,9 @@
+/* eslint-disable import/extensions */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { IAd } from 'types/adData'
-import { IDropDown } from 'types/dropdown'
-import { ImediaData } from 'types/mediaData'
-import { ItrendData } from 'types/trendData'
+import { IAd } from '../types/adData'
+import { IDropDown } from '../types/dropdown'
+import { ImediaData } from '../types/mediaData'
+import { ItrendData } from '../types/trendData'
 // import { fetchRegions } from './services/api'
 import { adData, mediaData, trendData } from './data'
 

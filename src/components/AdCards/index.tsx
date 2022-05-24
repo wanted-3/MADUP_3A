@@ -1,10 +1,12 @@
+/* eslint-disable import/extensions */
 import AdCardItem from '../AdCardItem'
 import styles from './adCards.module.scss'
 
-import { useAppSelector } from 'hooks/useAppSelector'
-import AdCardsHeader from '../AdCardsHeader'
-import { IAd } from 'types/adData'
+import { useAppSelector } from '../../hooks/useAppSelector'
+
+import { IAd } from '../../types/adData'
 import { useMemo, useState } from 'react'
+import AdCardsHeader from '../AdCardsHeader'
 
 const AdCards = () => {
   const adsData: IAd[] = useAppSelector((state) => state.ads)

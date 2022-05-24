@@ -1,26 +1,22 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/constants/levels';
+@use '/src/styles/mixins/flexbox';
+@use '/src/styles/mixins/position';
+
 .headerContainer {
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 50px;
-
-  border: 1px red solid;
   padding-left: 30px;
   padding-right: 40px;
 }
 
-.dropDown {
-  width: 120px;
-  border-radius: 10px;
-  padding: 3px;
-  border: 1px blue solid;
-  background-color: white;
-}
 .makeAdBtn {
   width: 104px;
   height: 40px;
-  background-color: #586cf5;
-  color: white;
+  background-color: colors.$BTN_COLOR;
+  color: colors.$WHITE;
   font-weight: bold;
   border-radius: 10px;
 }
