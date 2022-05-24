@@ -10,8 +10,8 @@ export interface IAd {
   budget: number
   status: string
   startDate: string
-  endDate?: string
-  report: Report
+  endDate?: string | null | undefined
+  report: IReport
 }
 
 export interface IReport {

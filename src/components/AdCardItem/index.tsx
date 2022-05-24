@@ -1,8 +1,15 @@
+import { IAd } from 'types/adData'
 import styles from './adCardItem.module.scss'
 
-const AdCardItem = ({ value }: any): JSX.Element => {
+interface Props {
+  item: IAd
+}
+
+const AdCardItem = ({ item }: Props): JSX.Element => {
+  const { startDate, endDate, budget, report, title } = item
+  console.log(item)
   // startDate, endDate 포멧 변경
-  const DateFormat = (str: string | null) => {
+  const DateFormat = (str: string | null | undefined) => {
     let format
     if (str) {
       format = str.slice(0, 10)
@@ -29,52 +36,62 @@ const AdCardItem = ({ value }: any): JSX.Element => {
     return `${numberWhole}만원 ${numberDecimal === 0 ? '' : `${numberDecimal} 천원`}`
   }
 
-  console.log(value.budget)
+  // console.log(value.budget)
   // formatting 된 data
   const ItemValue = {
-    ...value,
-    startDate: DateFormat(value.startDate),
-    endDate: DateFormat(value.endDate),
+    ...item,
+    startDate: DateFormat(startDate),
+    endDate: DateFormat(endDate),
     // budget: budgetFormat(value.budget),
-    budget: budgetFormat(value.budget),
+    budget: budgetFormat(budget),
     report: {
-      ...value.report,
-      convValue: MoneyFormat(value.report.convValue),
-      cost: MoneyFormat(value.report.cost),
+      ...report,
+      convValue: MoneyFormat(report.convValue),
+      cost: MoneyFormat(report.cost),
     },
   }
   const onModify = () => {
     console.log('modify')
   }
-  console.log(ItemValue)
+  // console.log(ItemValue)
 
   // roas = 광고매출 / 광고비 * 100
   return (
     <div className={styles.adCardItem}>
-      <div className={styles.title}>{value.title}</div>
+      <h2>{title}</h2>
       <div className={styles.contentsWrapper}>
-        <ul>
-          <li>
-            상태
-            {ItemValue.status === 'ended' ? <span>종료</span> : <span>진행중</span>}
-          </li>
-          <li>
-            광고 생성일<span>{ItemValue.startDate}</span>
-            {value.endDate ? <span>({ItemValue.endDate})</span> : null}
-          </li>
-          <li>
-            일 희망 예산 <span>{ItemValue.budget}</span>
-          </li>
-          <li>
-            광고 수익율 <span>{ItemValue.report.roas}%</span>
-          </li>
-          <li>
-            매출<span>{ItemValue.report.convValue}만원</span>
-          </li>
-          <li>
-            광고비용<span>{ItemValue.report.cost}만원</span>
-          </li>
-        </ul>
+        <dl>
+          <div className={styles.dtddWrapper}>
+            <dt>상태</dt>
+            {ItemValue.status === 'ended' ? <dd>종료</dd> : <dd>진행중</dd>}
+          </div>
+          <div className={styles.dtddWrapper}>
+            <dt>광고 생성일</dt>
+            {endDate ? (
+              <dd>
+                {ItemValue.startDate}({ItemValue.endDate})
+              </dd>
+            ) : (
+              <dd>{ItemValue.startDate}</dd>
+            )}
+          </div>
+          <div className={styles.dtddWrapper}>
+            <dt>일 희망 예산</dt>
+            <dd>{ItemValue.budget}</dd>
+          </div>
+          <div className={styles.dtddWrapper}>
+            <dt>광고 수익율</dt>
+            <dd>{ItemValue.report.roas}%</dd>
+          </div>
+          <div className={styles.dtddWrapper}>
+            <dt>매출</dt>
+            <dd>{ItemValue.report.convValue}만원</dd>
+          </div>
+          <div className={styles.dtddWrapper}>
+            <dt>광고비용</dt>
+            <dd>{ItemValue.report.cost}만원</dd>
+          </div>
+        </dl>
         <button className={styles.modifyBtn} type='button' onClick={onModify}>
           수정하기
         </button>

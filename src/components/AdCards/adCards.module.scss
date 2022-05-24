@@ -1,10 +1,15 @@
 .contentWrapper {
-  background-color: white;
+  width: 1050px;
+  height: 1020px;
+  background-color: rebeccapurple;
+  padding-top: 40px;
+  border-radius: 20px;
+  justify-content: center;
 }
 .adCardsWrapper {
-  width: 1040px;
-  height: 1020px;
-  display: flex;
+  display: grid;
   flex-wrap: wrap;
-  padding: 20px;
+  grid-template-columns: 350px 350px 350px;
+  align-items: center;
+  justify-items: center;
 }

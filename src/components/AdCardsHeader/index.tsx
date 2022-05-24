@@ -22,7 +22,6 @@ const AdCardsHeader = () => {
   return (
     <div className={styles.headerContainer}>
       <ReactDropdown options={options} onChange={onChangeOptions} value={defaultOption} />
-      <DropDown />
       <button className={styles.makeAdBtn} type='button' onClick={onClickMageAd}>
         광고 만들기
       </button>

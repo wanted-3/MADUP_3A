@@ -3,18 +3,19 @@ import styles from './adCards.module.scss'
 
 import { useAppSelector } from '../../hooks/useAppSelector'
 import AdCardsHeader from '../AdCardsHeader'
+import { IAd } from 'types/adData'
 
 const AdCards = () => {
-  const adsData = useAppSelector((state) => state.ads)
+  const adsData: IAd[] = useAppSelector((state) => state.ads)
 
-  // console.log(adsData)
+  console.log(adsData)
 
   return (
     <div className={styles.contentWrapper}>
       <AdCardsHeader />
       <div className={styles.adCardsWrapper}>
-        {adsData.map((value) => {
-          return <AdCardItem key={value.id} value={value} />
+        {adsData.map((item: IAd) => {
+          return <AdCardItem key={item.id} item={item} />
         })}
       </div>
     </div>
