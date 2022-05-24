@@ -1,5 +1,3 @@
-// eslint-disable-next-line import/extensions
-import { IAd } from '../../types/adData'
 import styles from './adCardItem.module.scss'
 
 const AdCardItem = ({ value }: any): JSX.Element => {
