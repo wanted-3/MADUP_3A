@@ -1,7 +1,7 @@
 // import { getDropList } from 'hooks/redux/dropDown'
 // import { useSelector } from 'react-redux'
 import { VictoryChart, VictoryLine, VictoryTheme, VictoryAxis, VictoryTooltip, VictoryVoronoiContainer } from 'victory'
-import getData from './getData'
+import getData from '../dataConverts/getData'
 
 const Chart = () => {
   const { all } = getData()

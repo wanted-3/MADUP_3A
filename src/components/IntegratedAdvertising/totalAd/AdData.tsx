@@ -1,101 +1,25 @@
 import styles from './adData.module.scss'
-
-import getData from '../chart/getData'
-import { DecrementIcon, IncrementIcon } from '../../../assets/svgs'
+import setData from '../dataConverts/setData'
+import setString from '../dataConverts/setString'
+import setPositiveInteger from '../dataConverts/setPositiveInteger'
+import setSlice from '../dataConverts/setSlice'
+import setIconColor from '../dataConverts/setIconColor'
 
 const AdData = () => {
-  const date = [8, 15]
-  const prevDate = date[1] - date[0]
-  const { all } = getData()
-
-  const ROAS = [
-    all[0].slice(date[0], date[1]).reduce((prev, current) => {
-      return prev + +current.y
-    }, 0),
-    all[0].slice(date[0] - prevDate, date[1] - prevDate).reduce((prev, current) => {
-      return prev + +current.y
-    }, 0),
-  ]
-  const differROAS = ROAS[1] - ROAS[0]
-
-  const cost = [
-    all[1].slice(date[0], date[1]).reduce((prev, current) => {
-      return prev + +current.y
-    }, 0),
-    all[1].slice(date[0] - prevDate, date[1] - prevDate).reduce((prev, current) => {
-      return prev + +current.y
-    }, 0),
-  ]
-  const differcost = cost[1] - cost[0]
-
-  const imp = [
-    all[2].slice(date[0], date[1]).reduce((prev, current) => {
-      return prev + +current.y
-    }, 0),
-    all[2].slice(date[0] - prevDate, date[1] - prevDate).reduce((prev, current) => {
-      return prev + +current.y
-    }, 0),
-  ]
-  const differimp = imp[1] - imp[0]
-
-  const click = [
-    all[3].slice(date[0], date[1]).reduce((prev, current) => {
-      return prev + +current.y
-    }, 0),
-    all[3].slice(date[0] - prevDate, date[1] - prevDate).reduce((prev, current) => {
-      return prev + +current.y
-    }, 0),
-  ]
-  const differclick = click[1] - click[0]
-
-  const conversion = [
-    all[4].slice(date[0], date[1]).reduce((prev, current) => {
-      return prev + +current.y
-    }, 0),
-    all[4].slice(date[0] - prevDate, date[1] - prevDate).reduce((prev, current) => {
-      return prev + +current.y
-    }, 0),
-  ]
-  const differconversion = conversion[1] - conversion[0]
-
-  const sales = [
-    all[5].slice(date[0], date[1]).reduce((prev, current) => {
-      return prev + +current.y
-    }, 0),
-    all[5].slice(date[0] - prevDate, date[1] - prevDate).reduce((prev, current) => {
-      return prev + +current.y
-    }, 0),
-  ]
-  const differsales = sales[1] - sales[0]
-
-  const setPositiveInteger = (aaa: number) => (aaa < 0 ? Math.floor(aaa * -1) : Math.floor(aaa))
-
-  const setString = (ccc: number) => {
-    if (ccc < 0) {
-      return String(ccc * -1)
-    }
-    return String(ccc)
-  }
-  const setSlice = (_value: string) => {
-    if (_value.length > 7) {
-      return _value.slice(0, 4).replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')
-    }
-    if (_value.length > 6) {
-      return _value.slice(0, 3)
-    }
-    if (_value.length === 6) {
-      return _value.slice(0, 2)
-    }
-    if (_value.length === 5) {
-      return _value.slice(0, 1)
-    }
-    if (_value.length < 5) {
-      return _value
-    }
-    return null
-  }
-
-  const setIconColor = (a: number) => (a < 0 ? <IncrementIcon /> : <DecrementIcon />)
+  const {
+    ROAS,
+    differROAS,
+    cost,
+    differcost,
+    imp,
+    differimp,
+    click,
+    differclick,
+    conversion,
+    differconversion,
+    sales,
+    differsales,
+  } = setData()
 
   const adList = [
     {

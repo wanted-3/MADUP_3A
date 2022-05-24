@@ -1,6 +1,7 @@
 import dayjs from 'dayjs'
 import { dataIntegrated, ItrendData } from '../../../types/trendData.d'
-import DATA from './wanted_FE_trend-data-set.json'
+
+import DATA from '../chart/wanted_FE_trend-data-set.json'
 
 const getData = () => {
   // ROAS, 광고비, 노출수, 클릭수, 전환 수, 매출
