@@ -1,0 +1,41 @@
+.adCardItem {
+  width: 305px;
+  height: 420px;
+  background-color: white;
+  border: 1px blue solid;
+  border-radius: 10px;
+  margin: 12px;
+  display: flexbox;
+  justify-content: center;
+  ul {
+    border-top: 1px gray solid;
+  }
+  li {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px gray solid;
+    list-style: none;
+    //
+    span {
+    }
+  }
+  .title {
+    font-size: 30px;
+    margin-top: 30px;
+    margin-left: 20px;
+  }
+  .contentsWrapper {
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 50px;
+  }
+  .modifyBtn {
+    width: 92px;
+    height: 40px;
+    margin-top: 20px;
+    border: 1px gray solid;
+    border-radius: 10px;
+  }
+}

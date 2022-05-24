@@ -1,7 +1,9 @@
+import AdCards from './components/AdCards'
+
 const App = () => {
   return (
     <main>
-      <h1>Hello</h1>
+      <AdCards />
     </main>
   )
 }
