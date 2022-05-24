@@ -8,6 +8,7 @@ interface Props {
 const AdCardItem = ({ item }: Props): JSX.Element => {
   const { startDate, endDate, budget, report, title } = item
   console.log(item)
+
   // startDate, endDate 포멧 변경
   const DateFormat = (str: string | null | undefined) => {
     let format
@@ -16,6 +17,7 @@ const AdCardItem = ({ item }: Props): JSX.Element => {
     }
     return format
   }
+
   // 돈 단위 formatting 만원단위, 3자리 ,
   const MoneyFormat = (num: number) => {
     return Math.round(num / 10000)
@@ -36,7 +38,6 @@ const AdCardItem = ({ item }: Props): JSX.Element => {
     return `${numberWhole}만원 ${numberDecimal === 0 ? '' : `${numberDecimal} 천원`}`
   }
 
-  // console.log(value.budget)
   // formatting 된 data
   const ItemValue = {
     ...item,

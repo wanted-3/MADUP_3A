@@ -1,20 +1,29 @@
 import AdCardItem from '../AdCardItem'
 import styles from './adCards.module.scss'
 
-import { useAppSelector } from '../../hooks/useAppSelector'
+import { useAppSelector } from 'hooks/useAppSelector'
 import AdCardsHeader from '../AdCardsHeader'
 import { IAd } from 'types/adData'
+import { useMemo, useState } from 'react'
 
 const AdCards = () => {
   const adsData: IAd[] = useAppSelector((state) => state.ads)
-
+  const [status, setStatus] = useState('all')
   console.log(adsData)
-
+  // card데이터
+  const filteredAdCardData = () => {
+    if (status === 'all') {
+      return adsData
+    }
+    return adsData.filter((value) => value.status === status)
+  }
+  console.log(status)
+  console.log(filteredAdCardData())
   return (
     <div className={styles.contentWrapper}>
-      <AdCardsHeader />
+      <AdCardsHeader setStatus={setStatus} />
       <div className={styles.adCardsWrapper}>
-        {adsData.map((item: IAd) => {
+        {filteredAdCardData().map((item: IAd) => {
           return <AdCardItem key={item.id} item={item} />
         })}
       </div>

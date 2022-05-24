@@ -1,6 +1,5 @@
-export interface IAdData {
-  count: number
-  ads: Ad[]
+export interface IadData {
+  ads: IAd[]
 }
 
 export interface IAd {
@@ -10,11 +9,11 @@ export interface IAd {
   budget: number
   status: string
   startDate: string
-  endDate?: string | null | undefined
-  report: IReport
+  endDate: string | null
+  report: Report
 }
 
-export interface IReport {
+interface Report {
   cost: number
   convValue: number
   roas: number
