@@ -7,9 +7,9 @@ const FirstPage = () => {
   return (
     <div className={styles.firstpage}>
       <Date />
-      {/* <nav>
+      <nav>
         <Navi />
-      </nav> */}
+      </nav>
       <main className={styles.main}>
         <Integrated />
       </main>
