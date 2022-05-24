@@ -3,7 +3,7 @@ interface RootObject {
 }
 
 export interface ItrendReport {
-  daily: Daily[]
+  daily: ItrendData[]
 }
 
 export interface ItrendData {

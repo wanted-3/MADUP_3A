@@ -1,17 +1,25 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { IAd } from '../types/adData.d'
+import { ImediaData } from '../types/mediaData.d'
+import { ItrendData } from '../types/trendData.d'
 
 // import { fetchRegions } from './services/api'
 
 import { adData, mediaData, trendData } from './data'
 
-const initialState = {
+export interface DataState {
+  ads: IAd[]
+  trend: ItrendData[]
+  media: ImediaData[]
+}
+const initialState: DataState = {
   ads: adData,
   trend: trendData,
   media: mediaData,
 }
 
 const reducers = {
-  setRegions: (state, { payload: regions }) => ({ ...state, regions }),
+  setAds: (state: DataState, action: PayloadAction<IAd>) => ({ ...state, action }),
 }
 
 const { actions, reducer } = createSlice({
@@ -20,6 +28,6 @@ const { actions, reducer } = createSlice({
   reducers,
 })
 
-export const { setRegions } = actions
+export const { setAds } = actions
 
 export default reducer

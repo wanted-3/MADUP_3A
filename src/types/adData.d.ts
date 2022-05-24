@@ -1,15 +1,15 @@
 export interface IadData {
-  ads: Ad[]
+  ads: IAd[]
 }
 
-interface Ad {
+export interface IAd {
   id: number
   adType: string
   title: string
   budget: number
   status: string
   startDate: string
-  endDate?: string
+  endDate: string | null
   report: Report
 }
 
