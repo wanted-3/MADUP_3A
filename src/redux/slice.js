@@ -12,6 +12,7 @@ const initialState = {
   ads: adData,
   trend: trendData,
   media: mediaData,
+  mediaChart: [],
   mediaTable: {
     statistics: [],
     totals: [],
@@ -20,6 +21,7 @@ const initialState = {
 
 const reducers = {
   setRegions: (state, { payload: regions }) => ({ ...state, regions }),
+  setMediaChart: (state, { payload: chartData }) => ({ ...state, mediaChart: chartData }),
   setMediaTable: (state, { payload: { statistics, totals } }) => ({
     ...state,
     mediaTable: {
@@ -35,15 +37,15 @@ const { actions, reducer } = createSlice({
   reducers,
 })
 
-export const { setRegions, setMediaTable } = actions
+export const { setRegions, setMediaChart, setMediaTable } = actions
 
 export default reducer
 
 function sliceMediaData(firstDay, lastDay, datas) {
-  const kakao = []
-  const naver = []
   const facebook = []
   const google = []
+  const naver = []
+  const kakao = []
 
   const seperator = {
     facebook(data) {
@@ -82,10 +84,12 @@ export function loadMediaData(firstDay = '2022-02-22', lastDay = '2022-02-25') {
 
     // 회사별, 날짜별로 데이터 묶어주기
     const slicedData = sliceMediaData(firstDay, lastDay, media)
-    console.log(slicedData)
-    let test = []
+
     // 묶인 파일 회사별로 합쳐주기
-    const statistics = slicedData.map((company) => {
+    // ChartBar, Table에서 쓸 데이터
+    let chartData = []
+    let statistics = []
+    slicedData.forEach((company) => {
       const companyData = company.reduce((obj, cur) => {
         if (!obj.channel) obj.channel = cur.channel
 
@@ -97,26 +101,16 @@ export function loadMediaData(firstDay = '2022-02-22', lastDay = '2022-02-25') {
       }, {})
       const { channel, cost, roas, imp, click, ctr, cpc, convValue } = companyData
 
-      // const facebook2 = [
-      //   { x: '광고비', y: 345678 }, //cost
-      //   { x: '매출', y: 345678 }, //roas * cost / 100
-      //   { x: '노출수', y: 345678 }, //imp
-      //   { x: '클릭수', y: 345678 }, //click
-      //   { x: '전환수', y: 345678 }, // convValue
-      // ]
-
-      test.push([
+      chartData.push([
         { x: '광고비', y: cost },
         { x: '매출', y: (roas * cost) / 100 },
         { x: '노출수', y: imp },
         { x: '클릭수', y: click },
         { x: '전환수', y: convValue },
       ])
-
-      return [channel, cost, (roas * cost) / 100, roas, imp, click, ctr, cpc]
+      statistics.push([channel, cost, (roas * cost) / 100, roas, imp, click, ctr, cpc])
     })
-    console.log(statistics)
-    console.log('테스트', test)
+
     // 총합 구하기
     const totals = ['총계', 0, 0, 0, 0, 0, 0, 0]
     statistics.forEach((companyData) => {
@@ -125,6 +119,8 @@ export function loadMediaData(firstDay = '2022-02-22', lastDay = '2022-02-25') {
       }
     })
 
+    // [facebook, google, naver, kakao] 순으로 저장된 데이터
+    dispatch(setMediaChart(chartData))
     dispatch(
       setMediaTable({
         statistics,

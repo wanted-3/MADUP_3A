@@ -1,15 +1,9 @@
-import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { loadMediaData } from '../redux/slice'
+import { useSelector } from 'react-redux'
+
 import styles from './Table.module.scss'
 
-export default function Table() {
-  const dispatch = useDispatch()
+const Table = () => {
   const { statistics, totals } = useSelector((state) => state.mediaTable)
-
-  useEffect(() => {
-    dispatch(loadMediaData())
-  }, [])
 
   const th = ['', '광고비', '매출', 'ROAS', '노출수', '클릭수', '클릭률(CTR)', '클릭당비용(CPC)'].map((category) => (
     <th key={category}>{category}</th>
@@ -37,3 +31,5 @@ export default function Table() {
     </table>
   )
 }
+
+export default Table

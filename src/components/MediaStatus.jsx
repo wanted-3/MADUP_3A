@@ -1,7 +1,17 @@
+import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { loadMediaData } from '../redux/slice'
+
 import Chart from './Chart'
 import Table from './Table'
 
 export default function MediaStatus() {
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(loadMediaData())
+  }, [])
+
   return (
     <div>
       <Chart />
@@ -47,3 +57,24 @@ export default function MediaStatus() {
 // 총합배열(totals)까지 포함한 result배열을 return한다
 
 // bar 항목에는 mental로 가공해서 보내기
+// 1.
+// const google = {
+//   channel: 'google',
+//   광고비: 12345678,
+//   매출: 12345678,
+//   노출수: 12345678,
+//   클릭수: 12345678,
+//   전환수: 12345678,
+// }
+
+// 2.
+// const google2 = [
+//   { x: '광고비', y: 12345678 },
+//   { x: '매출', y: 12345678 },
+//   { x: '노출수', y: 12345678 },
+//   { x: '클릭수', y: 12345678 },
+//   { x: '전환수', y: 12345678 },
+// ]
+
+// 3.
+// const result = [google2, naver2, facebook2, kakao2]
