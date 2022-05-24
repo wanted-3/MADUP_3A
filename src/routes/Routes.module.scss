@@ -1,13 +1,22 @@
 @use '/src/styles/constants/colors';
-
-.app {
-  position: absolute;
-  width: 1120px;
-  height: 80px;
-  left: 320px;
-  top: 0px;
-
-  /* bg_g */
-
-  background: #f6f7f8;
+@use '/src/styles/mixins/flexbox';
+.firstpage {
+  @include flexbox.flexbox(start, start);
+  flex-direction: column;
+  nav {
+    position: absolute;
+    width: 320px;
+    height: 984px;
+    left: 0px;
+    top: 0px;
+    background: #ffffff;
+    box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.04);
+  }
+  .mainItems {
+    position: absolute;
+    width: 1039px;
+    height: 654px;
+    left: 500px;
+    top: 60px;
+  }
 }

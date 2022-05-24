@@ -42,10 +42,10 @@ const DropDown = ({ orders }: props) => {
   // const selected = value.filter((item) => item.order === orders)
 
   return (
-    <div>
+    <div className={styles.dropdown}>
       <button type='button' className={styles.dropDownBtn}>
         {orders === 1 ? <CircleBlue /> : <CircleGreen />}
-        redux 수정필요
+        redux
         {/* {selected[0].title} */}
         <Arrow />
       </button>

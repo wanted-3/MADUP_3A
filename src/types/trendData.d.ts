@@ -2,11 +2,11 @@ interface RootObject {
   report: Report
 }
 
-interface Report {
+export interface ItrendReport {
   daily: Daily[]
 }
 
-export interface Daily {
+export interface ItrendData {
   imp: number
   click: number
   cost: number

@@ -1,11 +1,7 @@
 import FirstPage from './routes'
 
 const App = () => {
-  return (
-    <main>
-      <FirstPage />
-    </main>
-  )
+  return <FirstPage />
 }
 
 export default App

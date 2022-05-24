@@ -5,7 +5,7 @@ import Chart from './chart/Chart'
 
 const Integrated = () => {
   return (
-    <div className={styles.Integrated}>
+    <div className={styles.integrated}>
       <ShowData />
       <div className={styles.charts}>
         <div className={styles.dropdowns}>
