@@ -1,0 +1,21 @@
+@use '/src/styles/constants/colors';
+
+.wrap {
+  display: flex;
+  justify-content: space-between;
+  width: 220px;
+  font-size: 14px;
+}
+
+.startDateInput,
+.endDateInput {
+  width: 102px !important;
+  font-size: 14px;
+  border: none;
+  outline: none;
+}
+
+.startDateInput:focus,
+.endDateInput:focus {
+  font-weight: bold;
+}

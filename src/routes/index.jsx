@@ -1,13 +1,15 @@
 import Navi from '../components/navBar/Navi'
 import Integrated from './IntegratedAdvertising'
 import styles from './Routes.module.scss'
+import Date from '../components/datepicker/Datepicker'
 
 const FirstPage = () => {
   return (
     <div className={styles.firstpage}>
-      <nav>
+      <Date />
+      {/* <nav>
         <Navi />
-      </nav>
+      </nav> */}
       <main className={styles.main}>
         <Integrated />
       </main>
