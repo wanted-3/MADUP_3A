@@ -18,3 +18,18 @@ interface Report {
   convValue: number
   roas: number
 }
+
+interface IForMatAdData {
+  startDate: string | undefined
+  endDate: string | undefined
+  budget: string
+  report: {
+    convValue: string
+    cost: string
+    roas: number
+  }
+  id: number
+  adType: string
+  title: string
+  status: string
+}

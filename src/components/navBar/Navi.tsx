@@ -1,7 +1,8 @@
 import { NavLink } from 'react-router-dom'
 import { Board, Chart, Guide, LogoMad } from '../../assets/svgs'
 import { cx } from '../../styles'
-import DropDown from '../dropdown/Dropdown'
+import DropDown from '../dropDown/Dropdown'
+
 import styles from './navi.module.scss'
 
 const Navi = () => {

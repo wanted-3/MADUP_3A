@@ -1,11 +1,24 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { getAdsDrop, getDropList, setAdsDropDown, setDropDown } from '../../redux/slice'
-
-import DropDownItem from './dropdownITem'
-import Nav from './dropdownValues'
+import DropDownItem from './DropdownItem'
 
 interface props {
   orders: number
+}
+
+const Nav = {
+  3: [
+    {
+      id: 0,
+      title: '매드업',
+      order: 3,
+    },
+    {
+      id: 1,
+      title: '서비스 추가하기',
+      order: 0,
+    },
+  ],
 }
 
 const DropDown = ({ orders }: props) => {

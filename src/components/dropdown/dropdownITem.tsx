@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import { Arrow, CircleBlue, CircleGreen } from '../../assets/svgs'
 import { cx } from '../../styles'
-import { IDropDown } from '../../types/dropdown.d'
-import styles from './dropDown.module.scss'
+// eslint-disable-next-line import/extensions
+import { IDropDown } from '../../types/dropdown'
+import styles from './dropdown.module.scss'
 
 interface props {
   value: IDropDown[]

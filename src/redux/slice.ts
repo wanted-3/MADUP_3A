@@ -87,7 +87,7 @@ export const { setDate } = actions
 export const { setAdsDropDown } = actions
 export const getDropList = (state: DataState): IDropDown[] => state.dropList
 export const getTrendads = (state: DataState): ItrendData[] => state.trend
-export const getadsData = (state: DataState): IAd[] => state.ads
+export const getAdsData = (state: DataState): IAd[] => state.ads
 export const getMedia = (state: DataState): ImediaData[] => state.media
 export const getDate = (state: DataState): string[] => state.selectedDate
 export const getAdsDrop = (state: DataState): IDropDown[] => state.adsDrop
