@@ -12,6 +12,7 @@ const Chart = () => {
   const selected1 = value.filter((item) => item.order === 1)
   const selected2 = value.filter((item) => item.order === 2)
   const maxima = all.map((dataset) => Math.max(...dataset.map((d) => d.y)))
+
   return (
     <VictoryChart
       theme={VictoryTheme.material}

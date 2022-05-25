@@ -12,11 +12,22 @@
   left: 80px;
   top: 320px;
   background: colors.$WHITE;
-  border: 1px solid colors.$WHITE;
+  border: 1px solid #d1d8dc;
   border-radius: 10px;
   path {
     fill: colors.$GRAY3;
   }
+}
+.dropDownBtn2 {
+  @include flexbox.flexbox(center, center);
+  box-sizing: border-box;
+  width: 240px;
+  height: 60px;
+  left: 80px;
+  top: 320px;
+  background: #ffffff;
+  border: 1px solid #d1d8dc;
+  border-radius: 10px;
 }
 .slectWrapper {
   position: absolute;
@@ -33,6 +44,17 @@
   border: 1px solid colors.$BORDER_COLOR;
   margin-bottom: 2px;
   overflow: hidden;
+}
+.select2 {
+  @include flexbox.flexbox(center, center);
+
+  flex-direction: column;
+  color: colors.$BLACK;
+  background-color: transparent;
+  width: 240px;
+  border-radius: 10px;
+  border: 1px solid #d1d8dc;
+  margin-bottom: 2px;
 }
 .hidden {
   display: none;

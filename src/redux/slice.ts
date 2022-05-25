@@ -43,7 +43,7 @@ const INIT_ADS = [
   { id: 2, title: '진행중', order: 0, value: 'active' },
   { id: 3, title: '중단됨', order: 0, value: 'ended' },
 ]
-const INIT_DATE = ['2022-02-01', '2022-02-07']
+const INIT_DATE: string[] = []
 export interface DataState {
   ads: IAd[]
   trend: ItrendData[]

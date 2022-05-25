@@ -1,16 +1,32 @@
 @use '/src/styles/constants/colors';
 @use '/src/styles/mixins/flexbox';
 .firstpage {
-  @include flexbox.flexbox(start, start);
-  flex-direction: column;
+  display: flex;
+  flex-direction: row;
   nav {
     background: #ffffff;
     box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.04);
+    margin-right: 80px;
   }
   .main {
     @include flexbox.flexbox(start, start);
     flex-direction: column;
-    margin: 5px;
+    margin-top: 160px;
+  }
+  .title {
+    font-weight: 900;
+    font-size: 26px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    color: #3a474e;
+    margin-bottom: 50px;
+  }
+  .subTitle {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    color: #3a474e;
   }
   .integrated {
     @include flexbox.flexbox(start, start);

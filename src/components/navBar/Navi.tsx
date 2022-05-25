@@ -22,7 +22,7 @@ const Navi = () => {
           <Board />
           대시보드
         </NavLink>
-        <NavLink className={({ isActive }) => cx(styles.navBtn, { [styles.isActive]: isActive })} to='dashboard'>
+        <NavLink className={({ isActive }) => cx(styles.navBtn, { [styles.isActive]: isActive })} to='/dashboard'>
           <Chart />
           광고센터
         </NavLink>
