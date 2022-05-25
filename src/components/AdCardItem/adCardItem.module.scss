@@ -1,0 +1,56 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/constants/levels';
+@use '/src/styles/mixins/flexbox';
+@use '/src/styles/mixins/position';
+
+.adCardItem {
+  width: 305px;
+  height: 420px;
+  background-color: colors.$WHITE;
+  border: 1px colors.$GRAYD solid;
+  border-radius: 10px;
+  margin: 12px;
+  display: flexbox;
+  justify-content: center;
+  font-size: 0.8rem;
+  h2 {
+    margin-top: 30px;
+    margin-left: 15px;
+    padding-bottom: 50px;
+    font-size: 1.5em;
+    font-weight: bold;
+    border-bottom: 1px colors.$GRAYD solid;
+  }
+  dl {
+    width: 265px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  dt {
+    width: 35%;
+  }
+  dd {
+    width: 65%;
+    font-weight: bold;
+  }
+  .dtddWrapper {
+    height: 40px;
+    border-bottom: 1px colors.$GRAYD solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .contentsWrapper {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .modifyBtn {
+    width: 92px;
+    height: 40px;
+    margin-top: 20px;
+    border: 1px colors.$GRAYD solid;
+    border-radius: 10px;
+  }
+}

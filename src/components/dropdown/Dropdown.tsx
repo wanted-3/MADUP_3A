@@ -23,24 +23,6 @@ const DropDown = ({ orders }: props) => {
     )
     dispatch(setDropDown(setToZero))
   }
-  const handleAdsDrop = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault()
-    const clicked = event.currentTarget.value
-    const convert = adsValue.map((item) => (item.title === clicked ? { ...item, order: orders } : item))
-    const setToZero = convert.map((item) =>
-      item.order === orders && item.title !== clicked ? { ...item, order: 0 } : item
-    )
-    dispatch(setAdsDropDown(setToZero))
-  }
-  const handleDropDown = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault()
-  }
-  if (orders === 1 || orders === 2) {
-    return <DropDownItem value={value} func={handleChart} orders={orders} />
-  }
-  if (orders === 4) {
-    return <DropDownItem value={adsValue} func={handleAdsDrop} orders={orders} />
-  }
-  return <DropDownItem value={value2[3]} func={handleDropDown} orders={orders} />
+
 }
 export default DropDown
