@@ -28,6 +28,9 @@
     .bell {
       position: relative;
       &::after {
+        position: absolute;
+        top: -5;
+        right: -12;
         content: url('../../assets/svgs/circle_red.svg');
         border-radius: 50%;
         padding-bottom: 4px;
