@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { getadsData, getAdsDrop, getDropList, setAdsDropDown, setDropDown } from '../../redux/slice'
+import { getAdsDrop, getDropList, setAdsDropDown, setDropDown } from '../../redux/slice'
 
 import DropDownItem from './dropdownITem'
 import Nav from './dropdownValues'
@@ -30,7 +30,6 @@ const DropDown = ({ orders }: props) => {
     const setToZero = convert.map((item) =>
       item.order === orders && item.title !== clicked ? { ...item, order: 0 } : item
     )
-    console.log(adsValue)
     dispatch(setAdsDropDown(setToZero))
   }
   const handleDropDown = (event: React.MouseEvent<HTMLButtonElement>) => {

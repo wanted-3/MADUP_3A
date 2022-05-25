@@ -8,7 +8,8 @@ const Chart = () => {
   const { all } = GetData()
   const value = useAppSelector(getDropList)
   const date = GetDateIndex()
-  const selected = value.filter((item) => item.order !== 0)
+  const selected1 = value.filter((item) => item.order === 1)
+  const selected2 = value.filter((item) => item.order === 2)
   const maxima = all.map((dataset) => Math.max(...dataset.map((d) => d.y)))
   return (
     <VictoryChart
@@ -39,7 +40,7 @@ const Chart = () => {
           tickLabels: { fontSize: 12, padding: 5, fill: '#94A2AD' },
         }}
         tickValues={[0.16, 0.33, 0.5, 0.66, 0.83, 1]}
-        tickFormat={(t) => Math.floor(t * maxima[selected[0].id])}
+        tickFormat={(t) => Math.floor(t * maxima[selected1[0].id])}
       />
       <VictoryLine
         standalone={false}
@@ -61,8 +62,8 @@ const Chart = () => {
           data: { stroke: '#4FADF7' },
           parent: { border: '1px solid #ccc' },
         }}
-        y={(datum) => datum.y / maxima[selected[0].id]}
-        data={all[selected[0].id].slice(date[0], date[0] + 7)}
+        y={(datum) => datum.y / maxima[selected1[0].id]}
+        data={all[selected1[0].id].slice(date[0], date[0] + 7)}
       />
       <VictoryAxis
         dependentAxis
@@ -75,7 +76,7 @@ const Chart = () => {
           tickLabels: { fontSize: 12, fill: '#94A2AD' },
         }}
         tickValues={[0.16, 0.33, 0.5, 0.66, 0.83, 1]}
-        tickFormat={(t) => Math.floor(t * maxima[selected[1].id])}
+        tickFormat={(t) => Math.floor(t * maxima[selected2[0].id])}
       />
       <VictoryLine
         scale={{ x: 'time', y: 'linear' }}
@@ -98,8 +99,8 @@ const Chart = () => {
           data: { stroke: '#85DA47' },
           parent: { border: '1px solid #ccc' },
         }}
-        y={(datum) => datum.y / maxima[selected[1].id]}
-        data={all[selected[1].id].slice(date[0], date[0] + 7)}
+        y={(datum) => datum.y / maxima[selected2[0].id]}
+        data={all[selected2[0].id].slice(date[0], date[0] + 7)}
       />
     </VictoryChart>
   )
