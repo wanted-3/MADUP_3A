@@ -11,11 +11,13 @@ const Chart = () => {
   const date = GetDateIndex()
   const selected1 = value.filter((item) => item.order === 1)
   const selected2 = value.filter((item) => item.order === 2)
-  const maxima = all.map((dataset) => Math.max(...dataset.map((d) => d.y)))
+  const selectedData1 = all[selected1[0].id].slice(date[0], date[0] + 7)
+  const selectedData2 = all[selected2[0].id].slice(date[0], date[0] + 7)
+  const maxima1tmp = selectedData1.map((d) => d.y)
+  const maxima2tmp = selectedData2.map((d) => d.y)
+  const maxima1 = Math.max(...maxima1tmp)
+  const maxima2 = Math.max(...maxima2tmp)
 
-  const index1 = selected1[0].id
-  const index2 = selected2[0].id
-  console.log(index1, index2, value, all, maxima)
   return (
     <VictoryChart
       theme={VictoryTheme.material}
@@ -34,7 +36,6 @@ const Chart = () => {
           tickLabels: { fontSize: 12, padding: 5, fill: '#94A2AD' },
         }}
       />
-
       <VictoryAxis
         dependentAxis
         standalone={false}
@@ -45,7 +46,7 @@ const Chart = () => {
           tickLabels: { fontSize: 12, padding: 5, fill: '#94A2AD' },
         }}
         tickValues={[0.16, 0.33, 0.5, 0.66, 0.83, 1]}
-        tickFormat={(t) => Math.floor(t * maxima[3])}
+        tickFormat={(t) => Math.round(t * maxima1)}
       />
       <VictoryLine
         standalone={false}
@@ -56,7 +57,7 @@ const Chart = () => {
         labelComponent={
           <VictoryTooltip
             flyoutWidth={150}
-            flyoutPadding={{ top: 0, bottom: 0, left: 0, right: 0 }}
+            flyoutPadding={{ top: 0, bottom: 0, left: 10, right: 10 }}
             flyoutStyle={{
               stroke: 'none',
               fill: '#4FADF7',
@@ -67,8 +68,8 @@ const Chart = () => {
           data: { stroke: '#4FADF7' },
           parent: { border: '1px solid #ccc' },
         }}
-        y={(datum) => datum.y / maxima[3]}
-        data={all[3].slice(date[0], date[0] + 7)}
+        y={(datum) => datum.y / maxima1}
+        data={all[selected1[0].id].slice(date[0], date[0] + 7)}
       />
       <VictoryAxis
         dependentAxis
@@ -81,7 +82,7 @@ const Chart = () => {
           tickLabels: { fontSize: 12, fill: '#94A2AD' },
         }}
         tickValues={[0.16, 0.33, 0.5, 0.66, 0.83, 1]}
-        tickFormat={(t) => Math.floor(t * maxima[2])}
+        tickFormat={(t) => Math.round(t * maxima2)}
       />
       <VictoryLine
         scale={{ x: 'time', y: 'linear' }}
@@ -93,7 +94,7 @@ const Chart = () => {
         labelComponent={
           <VictoryTooltip
             flyoutWidth={150}
-            flyoutPadding={{ top: 0, bottom: 0, left: 0, right: 0 }}
+            flyoutPadding={{ top: 0, bottom: 0, left: 10, right: 10 }}
             flyoutStyle={{
               stroke: 'none',
               fill: '#85DA47',
@@ -104,8 +105,8 @@ const Chart = () => {
           data: { stroke: '#85DA47' },
           parent: { border: '1px solid #ccc' },
         }}
-        y={(datum) => datum.y / maxima[2]}
-        data={all[2].slice(date[0], date[0] + 7)}
+        y={(datum) => datum.y / maxima2}
+        data={all[selected2[0].id].slice(date[0], date[0] + 7)}
       />
     </VictoryChart>
   )
