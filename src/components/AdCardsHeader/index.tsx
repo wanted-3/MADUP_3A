@@ -22,6 +22,7 @@ const AdCardsHeader = ({ setStatus }: Props) => {
     setStatus(arg.value)
   }
   const onClickMageAd = () => {
+    // eslint-disable-next-line no-console
     console.log('open modal')
   }
   return (

@@ -5,7 +5,7 @@ import styles from './adCards.module.scss'
 import { useAppSelector } from '../../hooks/useAppSelector'
 
 import { IAd } from '../../types/adData'
-import { useMemo, useState } from 'react'
+import { useState } from 'react'
 import AdCardsHeader from '../AdCardsHeader'
 
 const AdCards = () => {
@@ -19,8 +19,6 @@ const AdCards = () => {
     }
     return adsData.filter((value) => value.status === status)
   }
-  console.log(status)
-  console.log(filteredAdCardData())
   return (
     <div className={styles.contentWrapper}>
       <AdCardsHeader setStatus={setStatus} />

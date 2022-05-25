@@ -27,7 +27,6 @@ const AdCardItem = ({ item }: Props): JSX.Element => {
 
   // 254500 -> 25.5 -> 25, 5를 뽑아서 25만 5천원
   // 250000 -> 25.0 -> 25, 0이 뽑히면 25만원
-  // console.log(parseFloat((b - a).toFixed(1)) * 10) // js 계산 오류
   const budgetFormat = (num: number) => {
     if (num < 100000) {
       return `${Math.ceil(num / 1000).toString()} 천원` // **천원
@@ -39,6 +38,7 @@ const AdCardItem = ({ item }: Props): JSX.Element => {
   }
 
   const onModify = () => {
+    // eslint-disable-next-line no-console
     console.log('modify')
   }
   // formatting 된 data
@@ -54,8 +54,6 @@ const AdCardItem = ({ item }: Props): JSX.Element => {
       cost: MoneyFormat(report.cost),
     },
   }
-
-  // console.log(ItemValue)
 
   return (
     <div className={styles.adCardItem}>

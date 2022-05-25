@@ -27,7 +27,7 @@ const DropDown = ({ orders, menu }: props) => {
     if (show) {
       setCurrentValue(event.currentTarget.value)
     }
-    console.log(event.currentTarget.value)
+
     setShow((current: any) => !current)
   }
 
@@ -64,7 +64,7 @@ const DropDown = ({ orders, menu }: props) => {
       </div>
     )
   }
-  console.log(dropDownMenu)
+
   return (
     <div className={styles.dropdown}>
       <button type='button' onClick={onClick} className={styles.dropDownBtn} value={currentValue}>
