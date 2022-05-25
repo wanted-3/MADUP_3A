@@ -62,7 +62,7 @@ const Chart = () => {
           parent: { border: '1px solid #ccc' },
         }}
         y={(datum) => datum.y / maxima[selected[0].id]}
-        data={all[selected[0].id].slice(date[0], date[1])}
+        data={all[selected[0].id].slice(date[0], date[0] + 7)}
       />
       <VictoryAxis
         dependentAxis
@@ -99,7 +99,7 @@ const Chart = () => {
           parent: { border: '1px solid #ccc' },
         }}
         y={(datum) => datum.y / maxima[selected[1].id]}
-        data={all[selected[1].id].slice(date[0], date[1])}
+        data={all[selected[1].id].slice(date[0], date[0] + 7)}
       />
     </VictoryChart>
   )

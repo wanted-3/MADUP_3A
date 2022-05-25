@@ -9,6 +9,11 @@
   }
   .main {
     @include flexbox.flexbox(start, start);
+    flex-direction: column;
     margin: 5px;
+  }
+  .integrated {
+    @include flexbox.flexbox(start, start);
+    flex-direction: column;
   }
 }

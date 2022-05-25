@@ -34,7 +34,7 @@ const DropDownItem = ({ value, func, orders }: props) => {
           (item) =>
             item.order === 0 && (
               <li key={item.id}>
-                <button type='button' onClick={func} value={item.id}>
+                <button type='button' onClick={func} value={orders === 1 || orders === 2 ? item.id : item.title}>
                   {item.title}
                 </button>
               </li>

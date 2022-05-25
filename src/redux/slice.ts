@@ -38,6 +38,11 @@ const INIT_DROP = [
     order: 0,
   },
 ]
+const INIT_ADS = [
+  { id: 1, title: '전체', order: 4, value: 'all' },
+  { id: 2, title: '진행중', order: 0, value: 'active' },
+  { id: 3, title: '중단됨', order: 0, value: 'ended' },
+]
 const INIT_DATE = ['2022-02-01', '2022-02-07']
 export interface DataState {
   ads: IAd[]
@@ -45,6 +50,7 @@ export interface DataState {
   media: ImediaData[]
   dropList: IDropDown[]
   selectedDate: string[]
+  adsDrop: IDropDown[]
 }
 
 const initialState: DataState = {
@@ -53,12 +59,16 @@ const initialState: DataState = {
   media: mediaData,
   dropList: INIT_DROP,
   selectedDate: INIT_DATE,
+  adsDrop: INIT_ADS,
 }
 
 const reducers = {
   setAds: (state: DataState, action: PayloadAction<IAd>) => ({ ...state, action }),
   setDropDown: (state: DataState, action: PayloadAction<IDropDown[]>) => {
     state.dropList = action.payload
+  },
+  setAdsDropDown: (state: DataState, action: PayloadAction<IDropDown[]>) => {
+    state.adsDrop = action.payload
   },
   setDate: (state: DataState, action: PayloadAction<string[]>) => {
     state.selectedDate = action.payload
@@ -74,9 +84,11 @@ const { actions, reducer } = createSlice({
 export const { setAds } = actions
 export const { setDropDown } = actions
 export const { setDate } = actions
+export const { setAdsDropDown } = actions
 export const getDropList = (state: DataState): IDropDown[] => state.dropList
 export const getTrendads = (state: DataState): ItrendData[] => state.trend
 export const getadsData = (state: DataState): IAd[] => state.ads
 export const getMedia = (state: DataState): ImediaData[] => state.media
 export const getDate = (state: DataState): string[] => state.selectedDate
+export const getAdsDrop = (state: DataState): IDropDown[] => state.adsDrop
 export default reducer

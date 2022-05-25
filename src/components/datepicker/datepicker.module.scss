@@ -9,12 +9,17 @@
 
 .startDateInput,
 .endDateInput {
-  width: 102px !important;
+  width: 130px !important;
   font-size: 14px;
   border: none;
   outline: none;
 }
-
+.dateInput {
+  width: 300px !important;
+  font-size: 14px;
+  border: none;
+  outline: none;
+}
 .startDateInput:focus,
 .endDateInput:focus {
   font-weight: bold;

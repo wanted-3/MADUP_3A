@@ -13,7 +13,10 @@ const FirstPage = () => {
         <Navi />
       </nav>
       <main className={styles.main}>
-        <Integrated />
+        <div className={styles.integrated}>
+          <h1>통합 광고 현황</h1>
+          <Integrated />
+        </div>
       </main>
     </div>
   )

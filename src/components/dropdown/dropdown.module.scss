@@ -35,12 +35,18 @@
   color: colors.$BLACK;
   background-color: transparent;
   width: 123px;
+  height: 60px;
   border-radius: 10px;
   border: 1px solid #d1d8dc;
   margin-bottom: 2px;
+  overflow: scroll;
+  .dropdownItem {
+    height: 60px;
+  }
 }
 .select2 {
   @include flexbox.flexbox(center, center);
+
   flex-direction: column;
   color: colors.$BLACK;
   background-color: transparent;
@@ -49,6 +55,7 @@
   border: 1px solid #d1d8dc;
   margin-bottom: 2px;
 }
+
 .hidden {
   display: none;
 }
