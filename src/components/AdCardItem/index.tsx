@@ -38,6 +38,9 @@ const AdCardItem = ({ item }: Props): JSX.Element => {
     return `${numberWhole}만원 ${numberDecimal === 0 ? '' : `${numberDecimal} 천원`}`
   }
 
+  const onModify = () => {
+    console.log('modify')
+  }
   // formatting 된 data
   const ItemValue = {
     ...item,
@@ -51,9 +54,7 @@ const AdCardItem = ({ item }: Props): JSX.Element => {
       cost: MoneyFormat(report.cost),
     },
   }
-  const onModify = () => {
-    console.log('modify')
-  }
+
   // console.log(ItemValue)
 
   return (
