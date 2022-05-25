@@ -32,7 +32,7 @@ const Chart = () => {
     <div style={{ marginBottom: '50px' }}>
       <VictoryChart width='800' height='300' domainPadding={{ x: 50, y: 10 }} theme={VictoryTheme.material}>
         <VictoryAxis
-          style={{ axis: { stroke: '#efefef' } }}
+          style={{ axis: { stroke: '#efefef' }, ticks: { stroke: 'transparent', strokeWidth: 2, size: 2 } }}
           tickFormat={['광고비', '매출', '노출수', '클릭수', '전환수']}
         />
         <VictoryAxis
@@ -43,9 +43,13 @@ const Chart = () => {
 
         <VictoryStack colorScale='cool'>
           {mental.length &&
-            mental.map((data) => (
+            mental.map((data, i) => (
               <VictoryBar
                 data={data}
+                cornerRadius={{
+                  topLeft: i === 3 ? 5 : 0,
+                  topRight: i === 3 ? 5 : 0,
+                }}
                 style={{
                   labels: { fill: 'white' },
                 }}

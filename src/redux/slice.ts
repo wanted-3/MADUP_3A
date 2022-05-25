@@ -1,14 +1,26 @@
+import { createSlice, PayloadAction, ThunkAction } from '@reduxjs/toolkit'
+
 import dayjs from 'dayjs'
 import isSameOrBefore from 'dayjs/plugin/isSameOrBefore'
 import isSameOrAfter from 'dayjs/plugin/isSameOrAfter'
 
-import { createSlice } from '@reduxjs/toolkit'
-
-// import { fetchRegions } from './services/api'
+import { IAd } from '../types/adData.d'
+import { ItrendData } from '../types/trendData.d'
+import { ImediaData } from '../types/mediaData.d'
+import { ImediaChart } from '../types/mediaChart.d'
+import { ImediaTable } from '../types/mediaTable.d'
 
 import { adData, mediaData, trendData } from './data'
 
-const initialState = {
+export interface DataState {
+  ads: IAd[]
+  trend: ItrendData[]
+  media: ImediaData[]
+  mediaChart: ImediaChart[][]
+  mediaTable: ImediaTable
+}
+
+const initialState: DataState = {
   ads: adData,
   trend: trendData,
   media: mediaData,
@@ -20,14 +32,11 @@ const initialState = {
 }
 
 const reducers = {
-  setRegions: (state, { payload: regions }) => ({ ...state, regions }),
-  setMediaChart: (state, { payload: chartData }) => ({ ...state, mediaChart: chartData }),
-  setMediaTable: (state, { payload: { statistics, totals } }) => ({
+  setAds: (state: DataState, action: PayloadAction<IAd>) => ({ ...state, action }),
+  setMediaChart: (state: DataState, action: PayloadAction<any>) => ({ ...state, mediaChart: action.payload }),
+  setMediaTable: (state: DataState, action: PayloadAction<any>) => ({
     ...state,
-    mediaTable: {
-      statistics,
-      totals,
-    },
+    mediaTable: action.payload,
   }),
 }
 
@@ -37,33 +46,33 @@ const { actions, reducer } = createSlice({
   reducers,
 })
 
-export const { setRegions, setMediaChart, setMediaTable } = actions
+export const { setAds, setMediaChart, setMediaTable } = actions
 
 export default reducer
 
-function sliceMediaData(firstDay, lastDay, datas) {
-  const facebook = []
-  const google = []
-  const naver = []
-  const kakao = []
+function sliceMediaData(firstDay: string, lastDay: string, datas: Array<any>) {
+  const facebook: Array<any> = []
+  const google: Array<any> = []
+  const naver: Array<any> = []
+  const kakao: Array<any> = []
 
-  const seperator = {
-    facebook(data) {
-      facebook.push(data)
-    },
+  //   const seperator = {
+  //     facebook(data: Array<any>) {
+  //       facebook.push(data)
+  //     },
 
-    google(data) {
-      google.push(data)
-    },
+  //     google(data: Array<any>) {
+  //       google.push(data)
+  //     },
 
-    kakao(data) {
-      kakao.push(data)
-    },
+  //     kakao(data: Array<any>) {
+  //       kakao.push(data)
+  //     },
 
-    naver(data) {
-      naver.push(data)
-    },
-  }
+  //     naver(data: Array<any>) {
+  //       naver.push(data)
+  //     },
+  //   }
 
   dayjs.extend(isSameOrAfter)
   dayjs.extend(isSameOrBefore)
@@ -72,13 +81,28 @@ function sliceMediaData(firstDay, lastDay, datas) {
     const { date, channel } = data
 
     const isDate = dayjs(date).isSameOrAfter(dayjs(firstDay)) && dayjs(date).isSameOrBefore(dayjs(lastDay)) && true
-    isDate === true && seperator[channel](data)
+    // isDate === true && seperator[channel](data)
+
+    if (isDate === true) {
+      if (channel === 'facebook') {
+        facebook.push(data)
+      } else if (channel === 'google') {
+        google.push(data)
+      } else if (channel === 'kakao') {
+        kakao.push(data)
+      } else if (channel === 'naver') {
+        naver.push(data)
+      }
+    }
   })
 
   return [facebook, google, naver, kakao]
 }
 
-export function loadMediaData(firstDay = '2022-02-22', lastDay = '2022-02-25') {
+export function loadMediaData(
+  firstDay = '2022-02-22',
+  lastDay = '2022-02-25'
+): ThunkAction<Promise<void>, any, null, any> {
   return async (dispatch, getState) => {
     const { media } = getState()
 
@@ -87,8 +111,8 @@ export function loadMediaData(firstDay = '2022-02-22', lastDay = '2022-02-25') {
 
     // 묶인 파일 회사별로 합쳐주기
     // ChartBar, Table에서 쓸 데이터
-    let chartData = []
-    let statistics = []
+    let chartData: Array<any> = []
+    let statistics: Array<any> = []
     slicedData.forEach((company) => {
       const companyData = company.reduce((obj, cur) => {
         if (!obj.channel) obj.channel = cur.channel
