@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { IAd } from '../types/adData.d'
+import { IAd } from '../types/adDate.d'
 import { IDropDown } from '../types/dropdown.d'
 import { ImediaData } from '../types/mediaData.d'
 import { ItrendData } from '../types/trendData.d'
@@ -87,7 +87,7 @@ export const { setDate } = actions
 export const { setAdsDropDown } = actions
 export const getDropList = (state: DataState): IDropDown[] => state.dropList
 export const getTrendads = (state: DataState): ItrendData[] => state.trend
-export const getadsData = (state: DataState): IAd[] => state.ads
+export const getAdsData = (state: DataState): IAd[] => state.ads
 export const getMedia = (state: DataState): ImediaData[] => state.media
 export const getDate = (state: DataState): string[] => state.selectedDate
 export const getAdsDrop = (state: DataState): IDropDown[] => state.adsDrop

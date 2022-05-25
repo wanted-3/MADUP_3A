@@ -1,6 +1,6 @@
 import Navi from '../../components/navBar/Navi'
 import styles from './page2.module.scss'
-import AdCards from '../../components/AdCards'
+import AdCards from './AdCards'
 
 const SecondPage = () => {
   return (
