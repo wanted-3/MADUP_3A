@@ -1,7 +1,7 @@
 import dayjs from 'dayjs'
-import { useAppSelector } from '../../hooks/useAppSelector'
-import { getTrendads } from '../../redux/slice'
-import { dataIntegrated, ItrendData } from '../../types/trendData.d'
+import { useAppSelector } from '../../../hooks/useAppSelector'
+import { getTrendads } from '../../../redux/slice'
+import { dataIntegrated, ItrendData } from '../../../types/trendData.d'
 
 const GetData = () => {
   const DATA = useAppSelector(getTrendads)

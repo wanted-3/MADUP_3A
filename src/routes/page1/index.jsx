@@ -1,8 +1,8 @@
-import Navi from '../components/navBar/Navi'
+import Navi from '../../components/navBar/Navi'
 import Integrated from './IntegratedAdvertising'
-import styles from './Routes.module.scss'
-import Date from '../components/datepicker/Datepicker'
-import AdCards from '../components/AdCards'
+import styles from './page1.module.scss'
+import Date from '../../components/datepicker/Datepicker'
+import AdCards from '../../components/AdCards'
 
 const FirstPage = () => {
   return (
@@ -15,7 +15,8 @@ const FirstPage = () => {
       </nav>
       <main className={styles.main}>
         <div className={styles.integrated}>
-          <h1>통합 광고 현황</h1>
+          <h1>대시보드</h1>
+          <h2>통합 광고 현황</h2>
           <Integrated />
           <AdCards />
         </div>

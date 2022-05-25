@@ -1,6 +1,7 @@
 import { VictoryChart, VictoryLine, VictoryTheme, VictoryAxis, VictoryTooltip, VictoryVoronoiContainer } from 'victory'
-import { useAppSelector } from '../../../hooks/useAppSelector'
-import { getDropList } from '../../../redux/slice'
+import { useAppSelector } from '../../../../hooks/useAppSelector'
+import { getDropList } from '../../../../redux/slice'
+
 import GetData from '../getData'
 import GetDateIndex from '../getDateIndex'
 

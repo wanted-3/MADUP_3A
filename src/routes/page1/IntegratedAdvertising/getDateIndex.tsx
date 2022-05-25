@@ -1,5 +1,5 @@
-import { useAppSelector } from '../../hooks/useAppSelector'
-import { getDate, getTrendads } from '../../redux/slice'
+import { useAppSelector } from '../../../hooks/useAppSelector'
+import { getDate, getTrendads } from '../../../redux/slice'
 
 const GetDateIndex = () => {
   const DATA = useAppSelector(getTrendads)
