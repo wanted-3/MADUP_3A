@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Arrow, CircleBlue, CircleGreen } from '../../assets/svgs'
 import { cx } from '../../styles'
 import { IDropDown } from '../../types/dropdown.d'
-import styles from './dropdown.module.scss'
+import styles from './dropDown.module.scss'
 
 interface props {
   value: IDropDown[]
