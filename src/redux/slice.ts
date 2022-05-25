@@ -1,9 +1,9 @@
-/* eslint-disable import/extensions */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { IAd } from '../types/adData'
-import { IDropDown } from '../types/dropdown'
-import { ImediaData } from '../types/mediaData'
-import { ItrendData } from '../types/trendData'
+import { IAd } from '../types/adData.d'
+import { IDropDown } from '../types/dropdown.d'
+import { ImediaData } from '../types/mediaData.d'
+import { ItrendData } from '../types/trendData.d'
+
 // import { fetchRegions } from './services/api'
 import { adData, mediaData, trendData } from './data'
 
@@ -39,11 +39,13 @@ const INIT_DROP = [
     order: 0,
   },
 ]
+
 export interface DataState {
   ads: IAd[]
   trend: ItrendData[]
   media: ImediaData[]
   dropList: IDropDown[]
+
 }
 
 const initialState: DataState = {
@@ -51,6 +53,7 @@ const initialState: DataState = {
   trend: trendData,
   media: mediaData,
   dropList: INIT_DROP,
+
 }
 
 const reducers = {
@@ -58,6 +61,7 @@ const reducers = {
   setDropDown: (state: DataState, action: PayloadAction<IDropDown[]>) => {
     state.dropList = action.payload
   },
+
 }
 
 const { actions, reducer } = createSlice({
@@ -68,6 +72,7 @@ const { actions, reducer } = createSlice({
 
 export const { setAds } = actions
 export const { setDropDown } = actions
+
 export const getDropList = (state: DataState): IDropDown[] => state.dropList
 export const getTrendads = (state: DataState): ItrendData[] => state.trend
 export const getadsData = (state: DataState): IAd[] => state.ads

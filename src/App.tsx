@@ -1,11 +1,7 @@
-import AdCards from './components/AdCards'
+import FirstPage from './routes'
 
 const App = () => {
-  return (
-    <main>
-      <AdCards />
-    </main>
-  )
+  return <FirstPage />
 }
 
 export default App
