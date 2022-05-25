@@ -1,7 +1,8 @@
 import GetData from '../getData'
+import GetDateIndex from '../getDateIndex'
 
 const setData = () => {
-  const date = [8, 15]
+  const date = GetDateIndex()
   const prevDate = date[1] - date[0]
   const { all } = GetData()
 

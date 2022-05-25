@@ -1,13 +1,14 @@
-import { useSelector } from 'react-redux'
 import { VictoryChart, VictoryLine, VictoryTheme, VictoryAxis, VictoryTooltip, VictoryVoronoiContainer } from 'victory'
+import { useAppSelector } from '../../../hooks/useAppSelector'
 import { getDropList } from '../../../redux/slice'
 import GetData from '../getData'
+import GetDateIndex from '../getDateIndex'
 
 const Chart = () => {
   const { all } = GetData()
-  const value = useSelector(getDropList)
+  const value = useAppSelector(getDropList)
+  const date = GetDateIndex()
   const selected = value.filter((item) => item.order !== 0)
-
   const maxima = all.map((dataset) => Math.max(...dataset.map((d) => d.y)))
   return (
     <VictoryChart
@@ -61,7 +62,7 @@ const Chart = () => {
           parent: { border: '1px solid #ccc' },
         }}
         y={(datum) => datum.y / maxima[selected[0].id]}
-        data={all[selected[0].id].slice(50, 55)}
+        data={all[selected[0].id].slice(date[0], date[1])}
       />
       <VictoryAxis
         dependentAxis
@@ -98,7 +99,7 @@ const Chart = () => {
           parent: { border: '1px solid #ccc' },
         }}
         y={(datum) => datum.y / maxima[selected[1].id]}
-        data={all[selected[1].id].slice(50, 55)}
+        data={all[selected[1].id].slice(date[0], date[1])}
       />
     </VictoryChart>
   )

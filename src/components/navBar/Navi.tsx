@@ -31,7 +31,7 @@ const Navi = () => {
         <button type='button' className={styles.infoGuide}>
           <Guide />
           <div className={styles.infoGuideText}>
-            <h1 className={styles.infoGuideTitle}>래버 이용 가이드</h1>
+            <h1 className={styles.infoGuideTitle}>레버 이용 가이드</h1>
             <p className={styles.text}>시작하기 전에 알아보기</p>
           </div>
         </button>

@@ -38,11 +38,13 @@ const INIT_DROP = [
     order: 0,
   },
 ]
+const INIT_DATE = ['2022-02-01', '2022-02-07']
 export interface DataState {
   ads: IAd[]
   trend: ItrendData[]
   media: ImediaData[]
   dropList: IDropDown[]
+  selectedDate: string[]
 }
 
 const initialState: DataState = {
@@ -50,12 +52,16 @@ const initialState: DataState = {
   trend: trendData,
   media: mediaData,
   dropList: INIT_DROP,
+  selectedDate: INIT_DATE,
 }
 
 const reducers = {
   setAds: (state: DataState, action: PayloadAction<IAd>) => ({ ...state, action }),
   setDropDown: (state: DataState, action: PayloadAction<IDropDown[]>) => {
     state.dropList = action.payload
+  },
+  setDate: (state: DataState, action: PayloadAction<string[]>) => {
+    state.selectedDate = action.payload
   },
 }
 
@@ -67,9 +73,10 @@ const { actions, reducer } = createSlice({
 
 export const { setAds } = actions
 export const { setDropDown } = actions
+export const { setDate } = actions
 export const getDropList = (state: DataState): IDropDown[] => state.dropList
 export const getTrendads = (state: DataState): ItrendData[] => state.trend
 export const getadsData = (state: DataState): IAd[] => state.ads
 export const getMedia = (state: DataState): ImediaData[] => state.media
-
+export const getDate = (state: DataState): string[] => state.selectedDate
 export default reducer
