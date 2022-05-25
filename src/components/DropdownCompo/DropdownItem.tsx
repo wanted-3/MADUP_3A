@@ -30,18 +30,20 @@ const DropDownItem = ({ value, func, orders }: props) => {
         {selected[0].title}
         <Arrow />
       </button>
-      <ul id='dropdown' className={show ? cx(styles.select, { [styles.select2]: orders === 3 }) : styles.hidden}>
-        {value.map(
-          (item) =>
-            item.order === 0 && (
-              <li key={item.id}>
-                <button type='button' onClick={func} value={orders === 1 || orders === 2 ? item.id : item.title}>
-                  {item.title}
-                </button>
-              </li>
-            )
-        )}
-      </ul>
+      <div className={styles.slectWrapper}>
+        <ul id='dropdown' className={show ? cx(styles.select, { [styles.select2]: orders === 3 }) : styles.hidden}>
+          {value.map(
+            (item) =>
+              item.order === 0 && (
+                <li key={item.id}>
+                  <button type='button' onClick={func} value={orders === 1 || orders === 2 ? item.id : item.title}>
+                    {item.title}
+                  </button>
+                </li>
+              )
+          )}
+        </ul>
+      </div>
     </div>
   )
 }

@@ -13,6 +13,9 @@ const Chart = () => {
   const selected2 = value.filter((item) => item.order === 2)
   const maxima = all.map((dataset) => Math.max(...dataset.map((d) => d.y)))
 
+  const index1 = selected1[0].id
+  const index2 = selected2[0].id
+  console.log(index1, index2, value, all, maxima)
   return (
     <VictoryChart
       theme={VictoryTheme.material}
@@ -42,7 +45,7 @@ const Chart = () => {
           tickLabels: { fontSize: 12, padding: 5, fill: '#94A2AD' },
         }}
         tickValues={[0.16, 0.33, 0.5, 0.66, 0.83, 1]}
-        tickFormat={(t) => Math.floor(t * maxima[selected1[0].id])}
+        tickFormat={(t) => Math.floor(t * maxima[3])}
       />
       <VictoryLine
         standalone={false}
@@ -53,7 +56,7 @@ const Chart = () => {
         labelComponent={
           <VictoryTooltip
             flyoutWidth={150}
-            flyoutPadding={{ top: 0, bottom: 0, left: 10, right: 10 }}
+            flyoutPadding={{ top: 0, bottom: 0, left: 0, right: 0 }}
             flyoutStyle={{
               stroke: 'none',
               fill: '#4FADF7',
@@ -64,8 +67,8 @@ const Chart = () => {
           data: { stroke: '#4FADF7' },
           parent: { border: '1px solid #ccc' },
         }}
-        y={(datum) => datum.y / maxima[selected1[0].id]}
-        data={all[selected1[0].id].slice(date[0], date[0] + 7)}
+        y={(datum) => datum.y / maxima[3]}
+        data={all[3].slice(date[0], date[0] + 7)}
       />
       <VictoryAxis
         dependentAxis
@@ -78,7 +81,7 @@ const Chart = () => {
           tickLabels: { fontSize: 12, fill: '#94A2AD' },
         }}
         tickValues={[0.16, 0.33, 0.5, 0.66, 0.83, 1]}
-        tickFormat={(t) => Math.floor(t * maxima[selected2[0].id])}
+        tickFormat={(t) => Math.floor(t * maxima[2])}
       />
       <VictoryLine
         scale={{ x: 'time', y: 'linear' }}
@@ -90,7 +93,7 @@ const Chart = () => {
         labelComponent={
           <VictoryTooltip
             flyoutWidth={150}
-            flyoutPadding={{ top: 0, bottom: 0, left: 10, right: 10 }}
+            flyoutPadding={{ top: 0, bottom: 0, left: 0, right: 0 }}
             flyoutStyle={{
               stroke: 'none',
               fill: '#85DA47',
@@ -101,8 +104,8 @@ const Chart = () => {
           data: { stroke: '#85DA47' },
           parent: { border: '1px solid #ccc' },
         }}
-        y={(datum) => datum.y / maxima[selected2[0].id]}
-        data={all[selected2[0].id].slice(date[0], date[0] + 7)}
+        y={(datum) => datum.y / maxima[2]}
+        data={all[2].slice(date[0], date[0] + 7)}
       />
     </VictoryChart>
   )

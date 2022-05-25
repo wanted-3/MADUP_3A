@@ -160,8 +160,8 @@ function sliceMediaData(firstDay: string, lastDay: string, datas: Array<any>) {
 }
 
 export function loadMediaData(
-  firstDay = '2022-02-22',
-  lastDay = '2022-02-25'
+  firstDay = '2022-02-01',
+  lastDay = '2022-02-07'
 ): ThunkAction<Promise<void>, any, null, any> {
   return async (dispatch, getState) => {
     const { media } = getState()

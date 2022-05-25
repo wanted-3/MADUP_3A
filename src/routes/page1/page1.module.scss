@@ -2,25 +2,27 @@
 @use '/src/styles/mixins/flexbox';
 .firstpage {
   display: flex;
-  flex-direction: row;
+  background-color: colors.$BACK_COLOR;
+  width: 100%;
   nav {
-    background: #ffffff;
+    background: colors.$WHITE;
+    height: 1600px;
     box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.04);
-    margin-right: 80px;
   }
   .main {
     @include flexbox.flexbox(start, start);
     flex-direction: column;
     margin: 5px;
   }
-  .title {
-    font-weight: 900;
-    font-size: 26px;
-    line-height: 30px;
-    display: flex;
-    align-items: center;
-    color: #3a474e;
-    margin-bottom: 50px;
+  .integrated {
+    @include flexbox.flexbox(start, start);
+    flex-direction: column;
+  }
+  .pageTitle {
+    position: absolute;
+    font-size: 1.75rem;
+    transform: translate(50px, -40px);
+    font-weight: bold;
   }
   .subTitle {
     font-weight: 700;
@@ -38,5 +40,20 @@
     width: 100%;
     height: 100%;
     background-color: colors.$BACK_COLOR;
+  }
+
+  th,
+  tr,
+  td {
+    font-size: 0.7rem;
+  }
+  th {
+    color: colors.$GRAYA;
+  }
+  .contentsWrapper {
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-bottom: 40px;
+    margin-top: 20px;
   }
 }

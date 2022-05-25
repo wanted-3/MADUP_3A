@@ -5,7 +5,7 @@ import Header from '../../components/header/Header'
 
 const SecondPage = () => {
   return (
-    <div className={styles.firstpage}>
+    <div className={styles.secondpage}>
       <nav>
         <Navi />
       </nav>

@@ -12,7 +12,7 @@ const Table = () => {
   const statisticsTable = statistics.map((company) => (
     <tr key={company}>
       {company.map((category, i) => (
-        <td key={`${company}-${category}-${i}`} className={cx({ [styles.leftTd]: i === 0 })}>
+        <td key={`${company}-${category}`} className={cx({ [styles.leftTd]: i === 0 })}>
           {category}
         </td>
       ))}

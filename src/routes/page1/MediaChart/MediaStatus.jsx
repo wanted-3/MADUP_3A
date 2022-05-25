@@ -11,7 +11,7 @@ const MediaStatus = () => {
   const [firstDay, lastDay] = useSelector((state) => state.selectedDate)
 
   useEffect(() => {
-    if (firstDay && lastDay) {
+    if (lastDay !== 'Invalid Date') {
       dispatch(loadMediaData(firstDay, lastDay))
     }
   }, [firstDay, lastDay, dispatch])

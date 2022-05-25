@@ -33,6 +33,7 @@
   position: absolute;
   background-color: colors.$WHITE;
   cursor: pointer;
+  z-index: 1;
 }
 .select {
   @include flexbox.flexbox(center, center);
