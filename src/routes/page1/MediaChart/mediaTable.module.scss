@@ -1,12 +1,14 @@
+@use '/src/styles/constants/colors';
+
 .table {
   width: 90%;
   margin: 0 auto;
-  border-top: 2px solid #efefef;
+  border-top: 2px solid colors.$BORDER_COLOR;
   border-collapse: collapse;
 
   th,
   td {
-    border-bottom: 2px solid #efefef;
+    border-bottom: 2px solid colors.$BORDER_COLOR;
     padding: 10px;
     text-align: right;
   }
@@ -16,6 +18,6 @@
   }
 
   tfoot {
-    color: blue;
+    color: colors.$BLUE;
   }
 }

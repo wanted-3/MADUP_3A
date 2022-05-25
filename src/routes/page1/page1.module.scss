@@ -7,7 +7,6 @@
   nav {
     background: colors.$WHITE;
     height: 1600px;
-    box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.04);
   }
   .main {
     @include flexbox.flexbox(start, start);
@@ -28,7 +27,7 @@
     font-weight: 700;
     font-size: 16px;
     line-height: 19px;
-    color: #3a474e;
+    color: colors.$TASK_ITEM_TITLE;
   }
   .integrated {
     @include flexbox.flexbox(start, start);

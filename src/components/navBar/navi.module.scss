@@ -1,11 +1,13 @@
 @use '/src/styles/mixins/flexbox';
+@use '/src/styles/constants/colors';
+
 .nav {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 320px;
   height: 1200px;
-  background: #ffffff;
+  background: colors.$WHITE;
   box-shadow: 4px 0 10px rgba(0, 0, 0, 4%);
   .logo {
     width: 320px;
@@ -15,14 +17,17 @@
   hr {
     align-self: center;
     width: 240px;
-    border: 1px solid #edeff1;
+    border: 1px solid colors.$BORDER_COLOR;
     margin-bottom: 20px;
+  }
+  span {
+    margin-left: 20px;
   }
   .text {
     font-size: 12px;
     font-weight: 700;
     line-height: 14px;
-    color: #94a2ad;
+    color: colors.$TASK_ITEM_TITLE;
     padding-bottom: 5px;
   }
   .dropDown {
@@ -46,13 +51,13 @@
       width: 240px;
       height: 60px;
       padding-left: 5px;
-      color: #3a474e;
+      color: colors.$TASK_ITEM_TITLE;
       &.isActive {
-        background: #edeff1;
+        background: colors.$HOVER_COLOR;
         border-radius: 10px;
-        color: #586cf5;
+        color: colors.$BTN_COLOR;
         path {
-          fill: #586cf5;
+          fill: colors.$BTN_COLOR;
         }
       }
     }
@@ -61,21 +66,21 @@
     @include flexbox.flexbox(center, center);
     width: 240px;
     height: 100px;
-    background: #e5f4fd;
+    background: colors.$INFO_COLOR;
     border-radius: 10px;
     margin-bottom: 50px;
     .infoGuideTitle {
       font-weight: 700;
       font-size: 16px;
       line-height: 19px;
-      color: #3a474e;
+      color: colors.$TASK_ITEM_TITLE;
     }
   }
   .link {
     font-size: 12px;
     font-weight: 700;
     line-height: 14px;
-    color: #94a2ad;
+    color: colors.$TASK_ITEM_TITLE;
     text-decoration: underline;
   }
 }

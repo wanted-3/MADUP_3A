@@ -21,11 +21,11 @@ const Navi = () => {
         <p className={styles.text}>광고 센터</p>
         <NavLink className={({ isActive }) => cx(styles.navBtn, { [styles.isActive]: isActive })} to='/'>
           <Board />
-          대시보드
+          <span>대시보드</span>
         </NavLink>
         <NavLink className={({ isActive }) => cx(styles.navBtn, { [styles.isActive]: isActive })} to='/dashboard'>
           <Chart />
-          광고센터
+          <span>광고센터</span>
         </NavLink>
       </div>
       <aside>
