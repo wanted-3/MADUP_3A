@@ -1,19 +1,23 @@
 import { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { loadMediaData } from '../../../redux/slice'
+import styles from './mediaStatus.module.scss'
 
 import Chart from './Chart'
 import Table from './Table'
 
 const MediaStatus = () => {
   const dispatch = useDispatch()
+  const [firstDay, lastDay] = useSelector((state) => state.selectedDate)
 
   useEffect(() => {
-    dispatch(loadMediaData('2022-02-22', '2022-02-29'))
-  }, [dispatch])
+    if (firstDay && lastDay) {
+      dispatch(loadMediaData(firstDay, lastDay))
+    }
+  }, [firstDay, lastDay, dispatch])
 
   return (
-    <div style={{ width: '1040px', padding: '40px', border: '1px solid black', borderRadius: '5%' }}>
+    <div className={styles.StatusWrapper}>
       <Chart />
       <Table />
     </div>

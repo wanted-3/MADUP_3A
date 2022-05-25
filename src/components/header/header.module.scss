@@ -1,17 +1,13 @@
 @use '/src/styles/mixins/flexbox';
 
 .header {
-  @include flexbox.flexbox(center, center);
-  flex-direction: column;
   margin-top: 10px;
-  position: absolute;
-  top: 0;
-  right: 0;
-
+  margin-left: auto;
   .icons {
     @include flexbox.flexbox(center, center);
     flex-direction: row;
     margin-bottom: 10px;
+    margin-right: 20px;
     li {
       margin-right: 10px;
       width: 60px;

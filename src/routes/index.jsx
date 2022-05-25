@@ -1,5 +1,5 @@
-import styles from './routes.module.scss'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import styles from './routes.module.scss'
 import FirstPage from './page1'
 import SecondPage from './page2'
 

@@ -30,7 +30,7 @@ const Chart = () => {
 
   return (
     <div style={{ marginBottom: '50px' }}>
-      <VictoryChart width='800' height='300' domainPadding={{ x: 50, y: 10 }} theme={VictoryTheme.material}>
+      <VictoryChart width='800' height='235' domainPadding={{ x: 50, y: 10 }} theme={VictoryTheme.material}>
         <VictoryAxis
           style={{ axis: { stroke: '#efefef' }, ticks: { stroke: 'transparent', strokeWidth: 2, size: 2 } }}
           tickFormat={['광고비', '매출', '노출수', '클릭수', '전환수']}
@@ -45,6 +45,7 @@ const Chart = () => {
           {mental.length &&
             mental.map((data, i) => (
               <VictoryBar
+                barRatio={0.25}
                 data={data}
                 cornerRadius={{
                   topLeft: i === 3 ? 5 : 0,

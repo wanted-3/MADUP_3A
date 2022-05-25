@@ -1,11 +1,13 @@
 @use '/src/styles/constants/colors';
 @use '/src/styles/mixins/flexbox';
 .firstpage {
+  width: 1460px;
+  height: 1170px;
+  overflow: hidden;
   @include flexbox.flexbox(start, start);
-  flex-direction: column;
   nav {
-    background: #ffffff;
-    box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.04);
+    background: colors.$WHITE;
+    box-shadow: 4px 0px 10px colors.$BLACK;
   }
   .main {
     @include flexbox.flexbox(start, start);
@@ -15,5 +17,18 @@
   .integrated {
     @include flexbox.flexbox(start, start);
     flex-direction: column;
+  }
+  .rightSide {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color: colors.$BACK_COLOR;
+  }
+  .pageTitle {
+    position: absolute;
+    font-size: 1.75rem;
+    transform: translate(50px, -40px);
+    font-weight: bold;
   }
 }
