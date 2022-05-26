@@ -1,7 +1,7 @@
 # 매드업
 
 ## 배포
-https://628e7d5391f3252a6497b336--madup3a.netlify.app
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8c963488-351b-41d4-9152-60535ac564b2/deploy-status)](https://628e7d5391f3252a6497b336--madup3a.netlify.app)
 
 ## 기술 스택
 
